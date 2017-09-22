@@ -1,4 +1,4 @@
-FROM dockerfile/haproxy
+FROM haproxy
 LABEL maintainer="Thanh Phu <nvtphu@gmail.com>"
 
 VOLUME /certs:/certs
