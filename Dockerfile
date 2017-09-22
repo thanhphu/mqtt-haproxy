@@ -1,10 +1,10 @@
 FROM dockerfile/haproxy
-MAINTAINER Andrea Reginato <andrea.reginato@gmail.com>
+LABEL maintainer="Thanh Phu <nvtphu@gmail.com>"
 
 VOLUME /certs:/certs
 
 # Add personalized configuration
-ADD haproxy.cfg /etc/haproxy/haproxy.cfg
+ADD haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
 
 # Add restart commands
 ADD restart.bash /haproxy-restart
@@ -16,6 +16,6 @@ WORKDIR /etc/haproxy
 CMD ["bash", "/haproxy-start"]
 
 # Expose ports.
-EXPOSE 80
+EXPOSE 8080
 EXPOSE 443
 EXPOSE 1883
