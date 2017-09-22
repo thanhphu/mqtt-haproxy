@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#
-# restart.bash
-#
-
 HAPROXY="/etc/haproxy"
 OVERRIDE="/haproxy-override"
 PIDFILE="/var/run/haproxy.pid"
@@ -12,6 +8,8 @@ CONFIG="haproxy.cfg"
 ERRORS="errors"
 
 cd "$HAPROXY"
+
+pkill -9 -f haproxy
 
 # Symlink errors directory
 if [[ -d "$OVERRIDE/$ERRORS" ]]; then
@@ -26,5 +24,5 @@ if [[ -f "$OVERRIDE/$CONFIG" ]]; then
   ln -s "$OVERRIDE/$CONFIG" "$CONFIG"
 fi
 
-exec haproxy -f /etc/haproxy/haproxy.cfg -D -p "$PIDFILE"
+haproxy -f /etc/haproxy/haproxy.cfg -D -p "$PIDFILE"
 
