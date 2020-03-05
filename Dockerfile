@@ -1,5 +1,5 @@
 FROM haproxy:1.7
-LABEL maintainer="Thanh Phu <nvtphu@gmail.com>"
+LABEL maintainer="Thanh Phu <me@email.com>"
 
 # VOLUME /certs:/certs
 
